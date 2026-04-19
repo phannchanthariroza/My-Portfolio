@@ -64,4 +64,4 @@ The repository includes a simple CI workflow that runs on push and pull request.
 
 ## Contact
 
-If you want to reach me, update the contact details in the portfolio page with your preferred links and email address. You can also replace this section with your real GitHub, email, or social profiles when you’re ready.
+If you want to reach me, contact me.

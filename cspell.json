@@ -1,0 +1,32 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "node_modules/**",
+    ".svelte-kit/**",
+    "build/**",
+    "pnpm-lock.yaml",
+    "index.html",
+    "style.css",
+    "script.js",
+    "static/**/*.png",
+    "*.png"
+  ],
+  "words": [
+    "SvelteKit",
+    "Chanthariroza",
+    "Phann",
+    "AUPP",
+    "Khmer",
+    "Phnom",
+    "Sangkat",
+    "Tuek",
+    "Thla",
+    "SIMSO",
+    "Namhong",
+    "Nhea",
+    "topbar",
+    "Fraunces",
+    "Glassmorphic"
+  ]
+}

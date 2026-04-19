@@ -1,0 +1,40 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./jsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "spell": "cspell --no-progress --no-summary \"**/*\"",
+    "spell:fix": "cspell --no-progress --no-summary --show-suggestions \"**/*\"",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:headed": "playwright test --headed",
+    "playwright:install": "playwright install"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@playwright/test": "^1.59.1",
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.16.0",
+    "cspell": "^10.0.0",
+    "eslint": "^9.25.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-svelte": "^3.5.1",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-svelte": "^3.3.3",
+    "svelte": "^5.25.0",
+    "svelte-check": "^4.1.6",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^8.0.0"
+  }
+}

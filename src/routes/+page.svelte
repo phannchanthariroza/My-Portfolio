@@ -1,4 +1,6 @@
 <script>
+  import { base } from '$app/paths';
+
   let lang = 'en';
   let theme = 'dark';
   let showIntro = true;
@@ -204,7 +206,7 @@
         jp: '食品推薦システム',
         kh: 'ប្រព័ន្ធណែនាំម្ហូបអាហារ'
       },
-      image: '/assets/food-rec.png',
+      image: `${base}/assets/food-rec.png`,
       desc: {
         en: 'Personalized meal suggestions based on preferences and dietary requirements.',
         jp: '好みや食事要件に基づいて個別に食事を提案するシステム。',
@@ -220,7 +222,7 @@
         jp: '食品期限トラッカー',
         kh: 'កម្មវិធីតាមដានកាលបរិច្ឆេទផុតកំណត់អាហារ'
       },
-      image: '/assets/food-expiry.png',
+      image: `${base}/assets/food-expiry.png`,
       desc: {
         en: 'Tracks shelf life and notifies users before products expire.',
         jp: '保存期限を追跡し、期限前に通知します。',
@@ -236,7 +238,7 @@
         jp: '植物病害検出',
         kh: 'ការរកឃើញជំងឺរុក្ខជាតិ'
       },
-      image: '/assets/plant.png',
+      image: `${base}/assets/plant.png`,
       desc: {
         en: 'Computer vision model to classify disease patterns in leaves.',
         jp: '葉の病害パターンを分類するコンピュータビジョンモデル。',
@@ -252,7 +254,7 @@
         jp: '天気確認アプリ',
         kh: 'កម្មវិធីពិនិត្យអាកាសធាតុ'
       },
-      image: '/assets/weather.png',
+      image: `${base}/assets/weather.png`,
       desc: {
         en: 'Real-time weather dashboard with API integration and clean UI.',
         jp: 'API連携によるリアルタイム天気ダッシュボード。',
@@ -268,7 +270,7 @@
         jp: '駐車場検出システム',
         kh: 'ប្រព័ន្ធរកឃើញចំណតរថយន្ត'
       },
-      image: '/assets/parking.png',
+      image: `${base}/assets/parking.png`,
       desc: {
         en: 'IoT-focused prototype for parking-space availability monitoring.',
         jp: '駐車スペースの空き状況を監視するIoTプロトタイプ。',
@@ -284,7 +286,7 @@
         jp: 'ECプラットフォーム',
         kh: 'វេទិកាពាណិជ្ជកម្មអេឡិចត្រូនិក'
       },
-      image: '/assets/ecomerce.png',
+      image: `${base}/assets/ecomerce.png`,
       desc: {
         en: 'Responsive storefront with practical product browsing experience.',
         jp: '商品閲覧がしやすいレスポンシブなストアフロント。',
@@ -300,7 +302,7 @@
         jp: 'AIレシピジェネレーター',
         kh: 'កម្មវិធីបង្កើតរូបមន្តម្ហូបដោយ AI'
       },
-      image: '/assets/receipe.png',
+      image: `${base}/assets/receipe.png`,
       desc: {
         en: 'Generates recipe ideas from available ingredients.',
         jp: '手元の材料からレシピ案を生成。',
@@ -416,7 +418,7 @@
         <div class="actions">
           <a class="btn primary" href="#projects">{t.seeProjects}</a>
           <a class="btn ghost" href="mailto:phannchanthariroza301105@gmail.com">{t.hireMe}</a>
-          <a class="btn ghost" href="/assets/Phann-Chanthariroza-CV.pdf" download>{t.downloadCv}</a>
+          <a class="btn ghost" href={`${base}/assets/Phann-Chanthariroza-CV.pdf`} download>{t.downloadCv}</a>
         </div>
         <div class="hero-stats">
           {#each stats as stat}
@@ -436,7 +438,7 @@
           on:mousemove={handleTiltMove}
           on:mouseleave={resetTilt}
         >
-          <img src="/assets/profile.png" alt="Portrait of Phann Chanthariroza" class="avatar" />
+          <img src={`${base}/assets/profile.png`} alt="Portrait of Phann Chanthariroza" class="avatar" />
           <div class="status-pill">
             <span class="status-dot"></span>
             Currently building unique web experiences
@@ -482,7 +484,7 @@
         <p>{t.aboutP1}</p>
         <p>{t.aboutP2}</p>
       </div>
-      <img src="/assets/about-me.png" alt="Phann working" class="about-photo" />
+      <img src={`${base}/assets/about-me.png`} alt="Phann working" class="about-photo" />
     </section>
 
     <section id="skills" class="panel">

@@ -4,6 +4,7 @@
   let lang = 'en';
   let theme = 'dark';
   let showIntro = true;
+  let selectedProject = null;
 
   function handleTiltMove(event) {
     const element = event.currentTarget;
@@ -25,6 +26,20 @@
     showIntro = false;
   }
 
+  function openProjectPreview(project) {
+    selectedProject = project;
+  }
+
+  function closeProjectPreview() {
+    selectedProject = null;
+  }
+
+  function handlePreviewKeydown(event) {
+    if (event.key === 'Escape') {
+      closeProjectPreview();
+    }
+  }
+
   const i18n = {
     en: {
       metaTitle: 'Phann Chanthariroza | Web Developer Portfolio',
@@ -34,11 +49,14 @@
       navSkills: 'Skills',
       navProjects: 'Projects',
       navContact: 'Contact',
-      introKicker: 'WELCOME TO MY PORTFOLIO',
-      introTitle: "Welcome to Roza's portfolio",
-      introText: 'A focused space for web development, projects, and creative work.',
-      introButton: 'Click to enter',
-      heroKicker: 'WEB DEVELOPER • SVELTEKIT • CAMBODIA',
+      introKicker: 'SOFTWARE DEVELOPMENT STUDENT • AUPP',
+      introTitle: "Welcome to Roza'portfolio",
+      introText:
+        'I am Roza, a university student developer focused on practical projects, clean UI, and steady growth through teamwork.',
+      introTag1: 'University Projects',
+      introTag2: 'Frontend Focus',
+      introTag3: 'Creative Problem Solving',
+      introButton: 'Enter Portfolio',
       heroTitle: 'I build modern, responsive websites and practical software products.',
       heroIntro:
         'Software Development junior at AUPP focused on frontend engineering, clean interfaces, and real-world applications powered by data and AI.',
@@ -60,6 +78,7 @@
       flowTitle: 'Developer Workflow',
       projectsKicker: 'PROJECTS',
       projectsTitle: 'Selected work and experiments.',
+      projectsNote: 'All projects below were completed as group coursework at university.',
       github: 'GitHub',
       liveDemo: 'Live Demo',
       eduKicker: 'EDUCATION',
@@ -91,11 +110,13 @@
       navSkills: 'スキル',
       navProjects: 'プロジェクト',
       navContact: '連絡先',
-      introKicker: '私のポートフォリオへようこそ',
-      introTitle: 'Rozaのポートフォリオへようこそ',
-      introText: 'Web開発、プロジェクト、創作活動をまとめた空間です。',
-      introButton: 'クリックして入る',
-      heroKicker: 'WEB開発者 • SVELTEKIT • カンボジア',
+      introKicker: 'ソフトウェア開発専攻 • AUPP',
+      introTitle: '丁寧なWeb体験をつくる。',
+      introText: '私はRozaです。大学で学びながら、実践的なプロジェクトと分かりやすいUIづくりに取り組んでいます。',
+      introTag1: '大学プロジェクト',
+      introTag2: 'フロントエンド重視',
+      introTag3: '創造的な問題解決',
+      introButton: 'ポートフォリオへ',
       heroTitle: 'モダンでレスポンシブなWebサイトと実用的なソフトウェアを開発します。',
       heroIntro:
         'AUPPのソフトウェア開発専攻。フロントエンド設計、分かりやすいUI、AIを活用した実践的なアプリ開発に注力しています。',
@@ -117,6 +138,7 @@
       flowTitle: '開発ワークフロー',
       projectsKicker: 'プロジェクト',
       projectsTitle: '主な制作物と実験プロジェクト。',
+      projectsNote: '以下のプロジェクトは、大学の授業でチームとして取り組んだものです。',
       github: 'GitHub',
       liveDemo: 'デモ',
       eduKicker: '学歴',
@@ -148,11 +170,13 @@
       navSkills: 'ជំនាញ',
       navProjects: 'គម្រោង',
       navContact: 'ទំនាក់ទំនង',
-      introKicker: 'ស្វាគមន៍មកកាន់ផតហ្វូលីយ៉ូរបស់ខ្ញុំ',
-      introTitle: 'ស្វាគមន៍មកកាន់ផតហ្វូលីយ៉ូរបស់ Roza',
-      introText: 'កន្លែងផ្តោតលើការអភិវឌ្ឍន៍វេប គម្រោង និងការងារច្នៃប្រឌិត។',
-      introButton: 'ចុចដើម្បីចូល',
-      heroKicker: 'WEB DEVELOPER • SVELTEKIT • កម្ពុជា',
+      introKicker: 'និស្សិត Software Development • AUPP',
+      introTitle: 'បង្កើតបទពិសោធន៍វេបដែលមានគុណភាព។',
+      introText: 'ខ្ញុំឈ្មោះ Roza។ ខ្ញុំជានិស្សិតសាកលវិទ្យាល័យដែលផ្តោតលើគម្រោងអនុវត្តន៍ UI ច្បាស់ និងការអភិវឌ្ឍជាបន្តបន្ទាប់។',
+      introTag1: 'គម្រោងក្រុមសាកលវិទ្យាល័យ',
+      introTag2: 'ផ្តោតលើ Frontend',
+      introTag3: 'ដោះស្រាយបញ្ហាដោយច្នៃប្រឌិត',
+      introButton: 'ចូលមើលផតហ្វូលីយ៉ូ',
       heroTitle: 'ខ្ញុំបង្កើតគេហទំព័រទំនើប ឆ្លើយតបល្អ និងផលិតផលសូហ្វវែរ​ដែលអាចប្រើបានពិត។',
       heroIntro:
         'ខ្ញុំជានិស្សិតឆ្នាំទី៣ ផ្នែក Software Development នៅ AUPP ផ្តោតលើ frontend, UI ស្អាត និងកម្មវិធីអនុវត្តជាក់ស្តែងដែលប្រើទិន្នន័យ និង AI។',
@@ -174,6 +198,7 @@
       flowTitle: 'លំហូរការងារអភិវឌ្ឍន៍',
       projectsKicker: 'គម្រោង',
       projectsTitle: 'គម្រោងសំខាន់ៗ និងការសាកល្បង។',
+      projectsNote: 'គម្រោងខាងក្រោមទាំងអស់ គឺការងារក្រុមក្នុងមុខវិជ្ជានៅសាកលវិទ្យាល័យ។',
       github: 'GitHub',
       liveDemo: 'មើលដេម៉ូ',
       eduKicker: 'ការសិក្សា',
@@ -212,6 +237,11 @@
         jp: '好みや食事要件に基づいて個別に食事を提案するシステム。',
         kh: 'ណែនាំមុខម្ហូបផ្ទាល់ខ្លួនតាមចំណូលចិត្ត និងតម្រូវការអាហារ។'
       },
+      note: {
+        en: 'University group project completed with classmates in a course module.',
+        jp: '大学の授業内で、クラスメイトと共同で進めたグループプロジェクトです。',
+        kh: 'នេះជាគម្រោងក្រុមក្នុងមុខវិជ្ជា ដែលខ្ញុំធ្វើជាមួយមិត្តរួមថ្នាក់នៅសាកលវិទ្យាល័យ។'
+      },
       stack: ['Python', 'ML', 'UX'],
       github: '#',
       demo: '#'
@@ -227,6 +257,11 @@
         en: 'Tracks shelf life and notifies users before products expire.',
         jp: '保存期限を追跡し、期限前に通知します。',
         kh: 'តាមដានអាយុកាលទុក និងជូនដំណឹងមុនថ្ងៃផុតកំណត់។'
+      },
+      note: {
+        en: 'University group project completed with classmates in a course module.',
+        jp: '大学の授業内で、クラスメイトと共同で進めたグループプロジェクトです。',
+        kh: 'នេះជាគម្រោងក្រុមក្នុងមុខវិជ្ជា ដែលខ្ញុំធ្វើជាមួយមិត្តរួមថ្នាក់នៅសាកលវិទ្យាល័យ។'
       },
       stack: ['Web App', 'Notifications', 'Data'],
       github: '#',
@@ -244,6 +279,11 @@
         jp: '葉の病害パターンを分類するコンピュータビジョンモデル。',
         kh: 'ប្រើ Computer Vision ដើម្បីចាត់ថ្នាក់លំនាំជំងឺលើស្លឹក។'
       },
+      note: {
+        en: 'University group project completed with classmates in a course module.',
+        jp: '大学の授業内で、クラスメイトと共同で進めたグループプロジェクトです。',
+        kh: 'នេះជាគម្រោងក្រុមក្នុងមុខវិជ្ជា ដែលខ្ញុំធ្វើជាមួយមិត្តរួមថ្នាក់នៅសាកលវិទ្យាល័យ។'
+      },
       stack: ['OpenCV', 'TensorFlow', 'AI'],
       github: '#',
       demo: '#'
@@ -259,6 +299,11 @@
         en: 'Real-time weather dashboard with API integration and clean UI.',
         jp: 'API連携によるリアルタイム天気ダッシュボード。',
         kh: 'ផ្ទាំងព័ត៌មានអាកាសធាតុពេលវេលាពិតជាមួយការភ្ជាប់ API។'
+      },
+      note: {
+        en: 'University group project completed with classmates in a course module.',
+        jp: '大学の授業内で、クラスメイトと共同で進めたグループプロジェクトです。',
+        kh: 'នេះជាគម្រោងក្រុមក្នុងមុខវិជ្ជា ដែលខ្ញុំធ្វើជាមួយមិត្តរួមថ្នាក់នៅសាកលវិទ្យាល័យ។'
       },
       stack: ['JavaScript', 'API', 'Responsive'],
       github: '#',
@@ -276,6 +321,11 @@
         jp: '駐車スペースの空き状況を監視するIoTプロトタイプ。',
         kh: 'គំរូ IoT សម្រាប់តាមដានកន្លែងចតរថយន្តទំនេរ។'
       },
+      note: {
+        en: 'University group research project. I worked on research and concept planning; full implementation is not completed yet.',
+        jp: '大学のグループ研究プロジェクトです。私は調査と企画を担当し、フル実装はまだ完了していません。',
+        kh: 'នេះជាគម្រោងស្រាវជ្រាវជាក្រុមនៅសាកលវិទ្យាល័យ។ ខ្ញុំបានធ្វើផ្នែកស្រាវជ្រាវ និងរៀបចំគំនិត ប៉ុន្តែការអនុវត្តពេញលេញនៅមិនទាន់រួចរាល់។'
+      },
       stack: ['IoT', 'Vision', 'Prototype'],
       github: '#',
       demo: '#'
@@ -291,6 +341,11 @@
         en: 'Responsive storefront with practical product browsing experience.',
         jp: '商品閲覧がしやすいレスポンシブなストアフロント。',
         kh: 'ហាងអនឡាញឆ្លើយតបល្អដែលងាយស្រួលរុករកផលិតផល។'
+      },
+      note: {
+        en: 'University group design project. I focused on wireframes and UI flow; this project is currently design-only.',
+        jp: '大学のグループ設計プロジェクトです。私はワイヤーフレームとUIフローを担当し、現在は設計段階のみです。',
+        kh: 'នេះជាគម្រោងរចនាជាក្រុមនៅសាកលវិទ្យាល័យ។ ខ្ញុំផ្តោតលើ wireframe និង UI flow ហើយបច្ចុប្បន្ននៅតែជាផ្នែករចនាប៉ុណ្ណោះ។'
       },
       stack: ['Frontend', 'UI', 'Product'],
       github: '#',
@@ -308,14 +363,67 @@
         jp: '手元の材料からレシピ案を生成。',
         kh: 'បង្កើតគំនិតរូបមន្តម្ហូបពីគ្រឿងផ្សំដែលមាន។'
       },
+      note: {
+        en: 'University group project completed with classmates in a course module.',
+        jp: '大学の授業内で、クラスメイトと共同で進めたグループプロジェクトです。',
+        kh: 'នេះជាគម្រោងក្រុមក្នុងមុខវិជ្ជា ដែលខ្ញុំធ្វើជាមួយមិត្តរួមថ្នាក់នៅសាកលវិទ្យាល័យ។'
+      },
       stack: ['AI Logic', 'Web', 'User Input'],
       github: '#',
       demo: '#'
+    },
+    {
+      title: {
+        en: 'Button Counter',
+        jp: 'ボタンカウンター',
+        kh: 'កម្មវិធីរាប់ប៊ូតុង'
+      },
+      image: `${base}/assets/buttoncounter.png`,
+      desc: {
+        en: 'Simple counter app to practice state updates and interactive UI behavior.',
+        jp: '状態更新とインタラクティブUIを練習するためのシンプルなカウンターアプリ。',
+        kh: 'កម្មវិធីរាប់លេខសាមញ្ញ សម្រាប់ហាត់ state update និងអន្តរកម្ម UI។'
+      },
+      stack: ['Svelte', 'State', 'UI'],
+      github: 'https://github.com/pich-reamrachna/quiz-game',
+      demo: 'https://button-counter-kohl.vercel.app/'
+    },
+    {
+      title: {
+        en: 'Japanese Quiz Game',
+        jp: '日本語クイズ',
+        kh: 'ហ្គេមសំណួរភាសាជប៉ុន'
+      },
+      image: `${base}/assets/quizgame.png`,
+      desc: {
+        en: 'Quiz game focused on Japanese language practice with interactive questions.',
+        jp: '日本語の練習に焦点を当てた、インタラクティブなクイズゲーム。',
+        kh: 'ហ្គេមសំណួរសម្រាប់ហាត់ភាសាជប៉ុន ជាមួយសំណួរអន្តរកម្ម។'
+      },
+      stack: ['Quiz', 'JavaScript', 'Learning App'],
+      github: 'https://github.com/pich-reamrachna/quiz-game',
+      demo: 'https://quiz-game-flame-alpha.vercel.app/'
+    },
+    {
+      title: {
+        en: 'SNS',
+        jp: 'SNS',
+        kh: 'SNS'
+      },
+      image: `${base}/assets/sns.png`,
+      desc: {
+        en: 'Social media style web app for posting, viewing, and interacting with content.',
+        jp: '投稿・閲覧・交流ができるSNS風Webアプリ。',
+        kh: 'Web app រចនាបែបបណ្តាញសង្គម សម្រាប់បង្ហោះ មើល និងអន្តរកម្មមាតិកា។'
+      },
+      stack: ['Frontend', 'Social App', 'UI'],
+      github: 'https://github.com/pich-reamrachna/social-media',
+      demo: 'https://social-media-one-virid.vercel.app/'
     }
   ];
 
   const stats = [
-    { value: '7+', key: 'heroStat1Label' },
+    { value: '10+', key: 'heroStat1Label' },
     { value: '8+', key: 'heroStat2Label' }
   ];
 
@@ -372,6 +480,11 @@
         <p class="intro-label">{t.introKicker}</p>
         <h1>{t.introTitle}</h1>
         <p class="intro-text">{t.introText}</p>
+        <div class="intro-tags" aria-label="Intro highlights">
+          <span>{t.introTag1}</span>
+          <span>{t.introTag2}</span>
+          <span>{t.introTag3}</span>
+        </div>
         <button class="btn intro-btn intro-action" on:click={enterPortfolio}>
           <span>{t.introButton}</span>
           <i aria-hidden="true">↗</i>
@@ -412,7 +525,6 @@
   <main class:light={theme === 'light'} class:locked={showIntro}>
     <section class="hero">
       <div class="hero-copy">
-        <p class="kicker">{t.heroKicker}</p>
         <h1>{t.heroTitle}</h1>
         <p class="intro">{t.heroIntro}</p>
         <div class="actions">
@@ -441,7 +553,7 @@
           <img src={`${base}/assets/profile.png`} alt="Portrait of Phann Chanthariroza" class="avatar" />
           <div class="status-pill">
             <span class="status-dot"></span>
-            Currently building unique web experiences
+            Building real projects as a university student
           </div>
         </div>
         <div
@@ -455,14 +567,15 @@
             <span></span>
             <span></span>
             <span></span>
-            <strong>studio.ts</strong>
+            <strong>profile.ts</strong>
           </div>
           <div class="editor-body">
             <p><span>const</span> developer <span>=</span> <span>{'{'} </span></p>
             <p>&nbsp;&nbsp;name: <em>'Phann Chanthariroza'</em>,</p>
-            <p>&nbsp;&nbsp;role: <em>'Web Developer'</em>,</p>
-            <p>&nbsp;&nbsp;stack: [<em>'SvelteKit'</em>, <em>'Python'</em>, <em>'AI'</em>],</p>
-            <p>&nbsp;&nbsp;style: <em>'clean, bold, memorable'</em></p>
+            <p>&nbsp;&nbsp;role: <em>'Software Development Student'</em>,</p>
+            <p>&nbsp;&nbsp;focus: [<em>'Frontend'</em>, <em>'Course Projects'</em>, <em>'Teamwork'</em>],</p>
+            <p>&nbsp;&nbsp;currently: <em>'Building and improving my portfolio'</em>,</p>
+            <p>&nbsp;&nbsp;goal: <em>'Become a strong professional web developer'</em></p>
             <p><span>{'}'}</span>;</p>
           </div>
         </div>
@@ -493,7 +606,7 @@
         <h2>{t.skillsTitle}</h2>
       </div>
       <div class="skills-grid">
-        <article class="tilt-card" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
+        <article class="tilt-card skill-card front" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
           <h3>{t.frontTitle}</h3>
           <ul>
             <li>SvelteKit</li>
@@ -502,8 +615,13 @@
             <li>Responsive Design</li>
             <li>UI/UX Fundamentals</li>
           </ul>
+          <div class="skill-meters" aria-label="Frontend proficiency meters">
+            <span style="--w: 92%">SvelteKit</span>
+            <span style="--w: 88%">JavaScript</span>
+            <span style="--w: 84%">Responsive UI</span>
+          </div>
         </article>
-        <article class="tilt-card" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
+        <article class="tilt-card skill-card back" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
           <h3>{t.backTitle}</h3>
           <ul>
             <li>Python</li>
@@ -512,8 +630,13 @@
             <li>API Integration</li>
             <li>OpenCV / TensorFlow Basics</li>
           </ul>
+          <div class="skill-meters" aria-label="Backend proficiency meters">
+            <span style="--w: 83%">Python</span>
+            <span style="--w: 76%">Java</span>
+            <span style="--w: 72%">API Integration</span>
+          </div>
         </article>
-        <article class="tilt-card" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
+        <article class="tilt-card skill-card flow" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
           <h3>{t.flowTitle}</h3>
           <ul>
             <li>Git & GitHub</li>
@@ -522,6 +645,11 @@
             <li>Playwright</li>
             <li>cspell</li>
           </ul>
+          <div class="skill-meters" aria-label="Workflow proficiency meters">
+            <span style="--w: 90%">GitHub Workflow</span>
+            <span style="--w: 82%">Code Quality</span>
+            <span style="--w: 74%">Testing Setup</span>
+          </div>
         </article>
       </div>
     </section>
@@ -532,7 +660,7 @@
         <h2>{t.processTitle}</h2>
       </div>
       <div class="process-grid">
-        {#each processSteps as step}
+        {#each processSteps as step, index}
           <div
             class="process-step tilt-card"
             role="group"
@@ -540,6 +668,7 @@
             on:mousemove={handleTiltMove}
             on:mouseleave={resetTilt}
           >
+            <span class="step-id">{String(index + 1).padStart(2, '0')}</span>
             <span class="process-dot"></span>
             <p>{t[step]}</p>
           </div>
@@ -558,6 +687,18 @@
             <span class="service-mark"></span>
             <h3>{t[`${service}Title`]}</h3>
             <p>{t[`${service}Desc`]}</p>
+            <div class="service-meta">
+              {#if service === 'service1'}
+                <span>Mobile-ready</span>
+                <span>Clean branding</span>
+              {:else if service === 'service2'}
+                <span>Interactive UX</span>
+                <span>Practical features</span>
+              {:else}
+                <span>Research-driven</span>
+                <span>Real use case</span>
+              {/if}
+            </div>
           </article>
         {/each}
       </div>
@@ -567,22 +708,30 @@
       <div class="section-head">
         <p class="kicker">{t.projectsKicker}</p>
         <h2>{t.projectsTitle}</h2>
+        <p class="projects-note">{t.projectsNote}</p>
       </div>
       <div class="project-grid">
         {#each projects as project}
           <article class="project-card tilt-card" on:mousemove={handleTiltMove} on:mouseleave={resetTilt}>
-            <img src={project.image} alt={project.title} />
+            <button
+              type="button"
+              class="project-visual"
+              aria-label={`Open preview for ${project.title[lang]}`}
+              on:click={() => openProjectPreview(project)}
+            >
+              <img src={project.image} alt={project.title[lang]} />
+              <span class="project-visual-hint">Click to preview</span>
+            </button>
             <div class="project-body">
               <h3>{project.title[lang]}</h3>
               <p>{project.desc[lang]}</p>
+              {#if project.note?.[lang]}
+                <p class="project-note">{project.note[lang]}</p>
+              {/if}
               <div class="tags">
                 {#each project.stack as tag}
                   <span>{tag}</span>
                 {/each}
-              </div>
-              <div class="project-links">
-                <a href={project.github} target="_blank" rel="noreferrer">{t.github}</a>
-                <a href={project.demo} target="_blank" rel="noreferrer">{t.liveDemo}</a>
               </div>
             </div>
           </article>
@@ -591,31 +740,75 @@
     </section>
 
     <section class="panel education">
-      <div>
+      <div class="edu-card edu-main">
         <p class="kicker">{t.eduKicker}</p>
         <h3>{t.eduTitle}</h3>
         <p>{t.eduDesc}</p>
+        <div class="edu-track" aria-label="Learning timeline">
+          <span style="--w: 35%">Foundation</span>
+          <span style="--w: 68%">Course Projects</span>
+          <span style="--w: 90%">Portfolio Growth</span>
+        </div>
       </div>
-      <div>
+      <div class="edu-card edu-highlights">
         <p class="kicker">{t.highKicker}</p>
-        <p>Best Pitch Team • Be Empowered Program</p>
-        <p>2nd Place • Code for Girl Program</p>
-        <p>English Interpreter & Co-leader • Korean Camp</p>
+        <ul class="highlight-list">
+          <li>Best Pitch Team • Be Empowered Program</li>
+          <li>2nd Place • Code for Girl Program</li>
+          <li>English Interpreter & Co-leader • Korean Camp</li>
+        </ul>
       </div>
     </section>
 
     <section id="contact" class="panel contact">
-      <div>
+      <div class="contact-copy">
         <p class="kicker">{t.contactKicker}</p>
         <h2>{t.contactTitle}</h2>
+        <p class="contact-sub">I am open to internships, university collaborations, and frontend freelance opportunities.</p>
       </div>
       <div class="contact-meta">
-        <p>Phnom Penh, Cambodia</p>
-        <p>(+855) 93268576</p>
-        <p>phannchanthariroza301105@gmail.com</p>
+        <div class="contact-row">
+          <span>Location</span>
+          <p>Phnom Penh, Cambodia</p>
+        </div>
+        <div class="contact-row">
+          <span>Phone</span>
+          <p><a href="tel:+85593268576">(+855) 93268576</a></p>
+        </div>
+        <div class="contact-row">
+          <span>Email</span>
+          <p><a href="mailto:phannchanthariroza301105@gmail.com">phannchanthariroza301105@gmail.com</a></p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:phannchanthariroza301105@gmail.com">Send Email</a>
+          <a href="tel:+85593268576">Call Now</a>
+        </div>
       </div>
     </section>
   </main>
+
+  {#if selectedProject}
+    <div
+      class="project-preview-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label={selectedProject.title[lang]}
+      tabindex="0"
+      on:keydown={handlePreviewKeydown}
+    >
+      <button type="button" class="project-preview-backdrop" aria-label="Close preview" on:click={closeProjectPreview}></button>
+      <div class="project-preview-dialog">
+        <button type="button" class="project-preview-close" on:click={closeProjectPreview} aria-label="Close preview">
+          Close
+        </button>
+        <img src={selectedProject.image} alt={selectedProject.title[lang]} />
+        <div class="project-preview-caption">
+          <h3>{selectedProject.title[lang]}</h3>
+          <p>{selectedProject.desc[lang]}</p>
+        </div>
+      </div>
+    </div>
+  {/if}
 
   <footer>
     <p>{t.footer}</p>
@@ -700,7 +893,7 @@
     z-index: 3;
     width: min(860px, calc(100% - 2rem));
     text-align: center;
-    padding: 0;
+    padding: clamp(0.5rem, 2vw, 1rem);
     animation: introRise 0.8s ease both;
   }
 
@@ -721,6 +914,10 @@
   }
 
   .intro-copy > *:nth-child(4) {
+    animation-delay: 0.46s;
+  }
+
+  .intro-copy > *:nth-child(5) {
     animation-delay: 0.56s;
   }
 
@@ -747,6 +944,30 @@
     color: #e0e7ef;
     line-height: 1.7;
     text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.42);
+  }
+
+  .intro-tags {
+    margin-top: 0.9rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .intro-tags span {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    padding: 0;
+    color: #dceaf4;
+    border: 0;
+    background: transparent;
+    opacity: 0.9;
+  }
+
+  .intro-tags span:not(:last-child)::after {
+    content: ' •';
+    margin-left: 0.25rem;
+    color: rgba(220, 234, 244, 0.75);
   }
 
   .intro-btn {
@@ -1201,6 +1422,8 @@
   main.light .intro,
   main.light .about p,
   main.light .project-body p,
+  main.light .projects-note,
+  main.light .project-note,
   main.light .education p,
   main.light .contact p,
   main.light .skills-grid ul {
@@ -1260,6 +1483,22 @@
 
   main.light .editor-body em {
     color: #0c7773;
+  }
+
+  main.light .kicker {
+    color: #8e4c33;
+  }
+
+  main.light .btn.ghost {
+    color: #243839;
+    border-color: rgba(58, 77, 73, 0.24);
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  main.light .tags span {
+    color: #6a3d2c;
+    background: rgba(243, 155, 109, 0.18);
+    border-color: rgba(198, 111, 74, 0.35);
   }
 
   .hero {
@@ -1629,54 +1868,350 @@
     box-shadow: 0 1.3rem 2.4rem rgba(0, 0, 0, 0.28);
     border-color: rgba(249, 178, 138, 0.35);
   }
-
+  .project-visual {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+  }
+  .project-visual:focus-visible {
+    outline: 2px solid rgba(249, 178, 138, 0.75);
+    outline-offset: -2px;
+  }
   .project-card img {
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    transform: translateZ(24px);
-    transition: transform 0.35s ease;
+    display: block;
+  }
+  .project-visual-hint {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.7rem;
+    z-index: 1;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    padding: 0.22rem 0.48rem;
+    border-radius: 999px;
+    color: #f6efe8;
+    background: rgba(10, 16, 23, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(0.35rem);
+  }
+  .project-preview-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(3, 8, 13, 0.78);
+    backdrop-filter: blur(0.65rem);
   }
 
+  .project-preview-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .project-preview-dialog {
+    width: min(960px, 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(12, 18, 26, 0.96);
+    box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.45);
+    position: relative;
+  }
+  .project-preview-dialog img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .project-preview-caption {
+    padding: 1rem;
+  }
+  .project-preview-caption h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .project-preview-caption p {
+    margin: 0.45rem 0 0;
+    color: #c8d2de;
+    line-height: 1.55;
+  }
+  .project-preview-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 0.38rem 0.75rem;
+    background: rgba(10, 16, 23, 0.84);
+    color: #f7efe6;
+    cursor: pointer;
+  }
+  .skill-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::after {
+    content: '';
+    position: absolute;
+    inset: auto -20% -28% auto;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    opacity: 0.32;
+    pointer-events: none;
+    filter: blur(0.3rem);
+  }
+
+  .skill-card.front::after {
+    background: radial-gradient(circle, rgba(243, 155, 109, 0.36), transparent 64%);
+  }
+
+  .skill-card.back::after {
+    background: radial-gradient(circle, rgba(129, 191, 204, 0.34), transparent 64%);
+  }
+
+  .skill-card.flow::after {
+    background: radial-gradient(circle, rgba(169, 146, 214, 0.28), transparent 64%);
+  }
+
+  .skill-meters {
+    margin-top: 0.85rem;
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .skill-meters span {
+    position: relative;
+    font-size: 0.66rem;
+    letter-spacing: 0.03em;
+    color: #d7e3f0;
+    border: 1px solid rgba(214, 225, 220, 0.16);
+    border-radius: 999px;
+    padding: 0.2rem 0.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .skill-meters span::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: var(--w);
+    background: linear-gradient(110deg, rgba(243, 155, 109, 0.34), rgba(129, 191, 204, 0.3));
+    z-index: -1;
+  }
   .project-card:hover img {
     transform: translateZ(34px) scale(1.04);
   }
 
   .project-body {
+    position: relative;
     padding: 0.95rem;
     transform: translateZ(28px);
   }
 
-  .project-links {
-    margin-top: 0.7rem;
+  .step-id {
+    position: absolute;
+    top: 0.68rem;
+    right: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: rgba(219, 230, 240, 0.68);
+    letter-spacing: 0.06em;
+  }
+
+  .process-step::after {
+    content: '';
+    position: absolute;
+    left: 1.14rem;
+    right: 1.14rem;
+    bottom: 0.72rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(243, 155, 109, 0.5), rgba(129, 191, 204, 0.36));
+    opacity: 0.46;
+  }
+
+  .service-meta {
+    margin-top: 0.75rem;
     display: flex;
+    gap: 0.42rem;
+    flex-wrap: wrap;
+  }
+
+  .service-meta span {
+    font-size: 0.68rem;
+    border-radius: 999px;
+    padding: 0.22rem 0.48rem;
+    border: 1px solid rgba(214, 225, 220, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    color: #d6e1ed;
+  }
+
+  .edu-card {
+    border: 1px solid rgba(214, 225, 220, 0.14);
+    border-radius: 0.95rem;
+    padding: 0.95rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+      rgba(15, 23, 33, 0.76);
+  }
+
+  .edu-track {
+    margin-top: 0.85rem;
+    display: grid;
     gap: 0.45rem;
   }
 
-  .project-links a {
-    font-size: 0.72rem;
-    font-weight: 700;
+  .edu-track span {
+    font-size: 0.7rem;
     border-radius: 999px;
-    padding: 0.26rem 0.58rem;
-    border: 1px solid rgba(249, 178, 138, 0.35);
-    color: #ffd9c5;
-    background: rgba(248, 163, 114, 0.12);
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    border: 1px solid rgba(214, 225, 220, 0.18);
+    padding: 0.22rem 0.5rem;
+    position: relative;
+    overflow: hidden;
+    color: #d7e0eb;
+    background: rgba(255, 255, 255, 0.02);
   }
 
-  .project-links a:hover {
+  .edu-track span::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: var(--w);
+    background: linear-gradient(110deg, rgba(243, 155, 109, 0.35), rgba(129, 191, 204, 0.28));
+    z-index: -1;
+  }
+
+  .highlight-list {
+    margin: 0.4rem 0 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    color: #cad3de;
+  }
+
+  .contact-sub {
+    margin: 0.45rem 0 0;
+    color: #c5cfdb;
+    max-width: 52ch;
+    line-height: 1.6;
+  }
+
+  .contact-row {
+    display: grid;
+    gap: 0.2rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px dashed rgba(214, 226, 214, 0.16);
+  }
+
+  .contact-row span {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8fa2b6;
+  }
+
+  .contact-row p {
+    margin: 0;
+    color: #e4ebf5;
+    font-weight: 600;
+    word-break: break-word;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.48rem;
+    margin-top: 0.2rem;
+  }
+
+  .contact-actions a {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.35rem 0.62rem;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 178, 138, 0.4);
+    color: #ffd7c2;
+    background: rgba(248, 163, 114, 0.12);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .contact-actions a:hover {
+    transform: translateY(-1px);
+    background: rgba(248, 163, 114, 0.2);
     transform: translateY(-1px);
     background: rgba(248, 163, 114, 0.2);
   }
 
-  main.light .project-links a {
+  main.light .step-id {
+    color: rgba(43, 62, 69, 0.7);
+  }
+
+  main.light .service-meta span,
+  main.light .skill-meters span,
+  main.light .edu-track span {
+    color: #284042;
+    border-color: rgba(66, 85, 79, 0.24);
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  main.light .edu-card,
+  main.light .contact-meta {
+    background: rgba(249, 251, 245, 0.95);
+    border-color: rgba(66, 85, 79, 0.2);
+  }
+
+  main.light .highlight-list,
+  main.light .contact-sub {
+    color: #2f4448;
+  }
+
+  main.light .contact-row span {
+    color: #5f767a;
+  }
+
+  main.light .contact-row p {
+    color: #1f3033;
+  }
+
+  main.light .contact-actions a {
     color: #6a3a2a;
-    background: rgba(243, 155, 109, 0.16);
+    background: rgba(243, 155, 109, 0.18);
   }
 
   .project-body p {
     margin: 0.45rem 0 0;
     color: #c8d0db;
+  }
+
+  .projects-note {
+    margin: 0.35rem 0 0;
+    color: #c2ced9;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .project-note {
+    margin-top: 0.55rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #f0c6ac;
   }
 
   .tags {
@@ -1804,6 +2339,39 @@
       linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
       rgba(15, 23, 33, 0.86);
     transform: translateZ(24px);
+  }
+
+  /* Keep this block near the end so light-mode contrast wins over base dark styles. */
+  main.light .process-step,
+  main.light .services-grid article {
+    background:
+      linear-gradient(180deg, rgba(248, 250, 245, 0.98), rgba(239, 244, 239, 0.96));
+    border-color: rgba(66, 85, 79, 0.22);
+  }
+
+  main.light .process-step p,
+  main.light .services-grid p,
+  main.light .services-grid h3 {
+    color: #203233;
+  }
+
+  main.light .hero-stats div {
+    background: rgba(247, 249, 243, 0.94);
+    border-color: rgba(66, 85, 79, 0.22);
+  }
+
+  main.light .hero-stats strong {
+    color: #bc6139;
+  }
+
+  main.light .hero-stats span {
+    color: #3b4f53;
+  }
+
+  main.light .actions .btn.ghost {
+    color: #203233;
+    border-color: rgba(58, 77, 73, 0.3);
+    background: rgba(255, 255, 255, 0.84);
   }
 
   footer {
